@@ -12,7 +12,12 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+//        val classC = ClassC()
+//        classC.startClassC() Without DI
+
         val classC = ClassC()
-        classC.startClassC()
+        classC.classA = ClassA()
+        classC.classB = ClassB()
+        classC.startClassC() // field injection
     }
 }
