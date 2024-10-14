@@ -1,6 +1,7 @@
 package com.example.dependencyinjectionusingdagger_hilt
 
 import android.util.Log
+import javax.inject.Inject
 
 //class ClassC() {
 //
@@ -24,10 +25,19 @@ import android.util.Log
 //
 //}
 
-class ClassC(private val classA: ClassA, private val classB: ClassB) {
+/*class ClassC(private val classA: ClassA, private val classB: ClassB) {
     fun startClassC() {
         classA.startClassA()
         classB.startClassB()
         Log.i("TAG", "ClassC is starting...")
     }
-} // constructor injection
+}*/ // constructor injection
+
+
+class ClassC @Inject constructor(private val classA: ClassA, private val classB: ClassB) {
+    fun startClassC() {
+        classA.startClassA()
+        classB.startClassB()
+        Log.i("TAG", "ClassC is starting...")
+    }
+}
